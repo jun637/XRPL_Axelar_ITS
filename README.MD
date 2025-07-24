@@ -1,4 +1,4 @@
-# XRPL-Axelar ITS 프로젝트
+# XRPL-Axelar 크로스체인 토큰 전송 프로젝트
 
 XRPL에서 Axelar Interchain Token Service (ITS)를 통해 다른 체인으로 토큰을 전송하는 TypeScript 프로젝트입니다.
 
@@ -18,7 +18,7 @@ npm run generate-wallet
 `.env` 파일을 생성하고 다음 내용을 추가하세요:
 ```env
 PRIVATE_KEY=<생성된_시드값>
-ENV=testnet
+ENV=xrpl
 CHAIN=xrpl
 ```
 
@@ -45,7 +45,7 @@ npm run interchain-transfer -- -e testnet -n xrpl "ABC.r4DVHyEisbgQRAXCiMtP2xuz5
 
 ### 3단계: 가스 추가 (필요시)
 ```bash
-npm run add-gas -- -e testnet -n xrpl --amount 0.1 --token XRP --msgId <메시지_ID>
+npm run add-gas -- -e testnet -n xrpl --amount <추가할 가스 양> --token XRP --msgId <메시지_ID>
 ```
 
 ## 📋 사용 가능한 스크립트
@@ -96,9 +96,9 @@ npm run add-gas -- -e testnet -n xrpl --amount 0.1 --token XRP --msgId <메시�
 
 ## 📝 예시
 
-### XRP를 Ethereum으로 전송
+### XRP를 XRPL EVM Sidechain으로 전송
 ```bash
-npm run interchain-transfer -- -e testnet -n xrpl XRP 1 ethereum 0x1234567890123456789012345678901234567890 --gasFeeAmount 0
+npm run interchain-transfer -- -e testnet -n xrpl XRP 1 xrpl-evm 0x1234567890123456789012345678901234567890 --gasFeeAmount 0
 ```
 
 ### IOU 토큰을 다른 체인으로 전송
