@@ -1,7 +1,7 @@
 {
-  "chains": {
-    "xrpl": {
-      "name": "xrpl",
+    "chains": {
+      "xrpl": {
+        "name": "xrpl",
       "axelarId": "xrpl",
       "rpc": "https://s.altnet.rippletest.net:51234",
       "wssRpc": "wss://s.altnet.rippletest.net:51233",
@@ -40,7 +40,7 @@
       "axelarId": "xrpl-evm",
       "chainId": 1449000,
       "rpc": "https://rpc.testnet.xrplevm.org",
-      "tokenSymbol": "XRP",
+        "tokenSymbol": "XRP",
       "decimals": 18,
       "confirmations": 1,
       "finality": "finalized",
@@ -51,7 +51,7 @@
         "url": "https://explorer.testnet.xrplevm.org/",
         "api": "https://explorer.testnet.xrplevm.org/api/"
       },
-      "contracts": {
+        "contracts": {
         "ConstAddressDeployer": {
           "address": "0x98B2920D53612483F91F12Ed7754E51b4A77919e",
           "deployer": "0xE86375704CDb8491a5Ed82D90DceCE02Ee0ac25F",
@@ -67,7 +67,7 @@
           "predeployCodehash": "0x73fc31262c4bad113c79439fd231281201c7c7d45b50328bd86bccf37684bf92",
           "salt": "Create3Deployer"
         },
-        "AxelarGateway": {
+          "AxelarGateway": {
           "deployer": "0xB8Cd93C83A974649D76B1c19f311f639e62272BC",
           "operator": "0xB8Cd93C83A974649D76B1c19f311f639e62272BC",
           "proxyDeploymentArgs": [
@@ -101,8 +101,8 @@
           "implementation": "0xCD6b34FaF1FD1056C728A27426AB6807f84BAa1b",
           "deployer": "0x5b593E7b1725dc6FcbbFe80b2415B19153F94A85",
           "owner": "0x6f24A47Fc8AE5441Eb47EFfC3665e70e69Ac3F05"
-        },
-        "InterchainTokenService": {
+          },
+          "InterchainTokenService": {
           "salt": "ITS v2.1.1 patch",
           "deployer": "0x6f24A47Fc8AE5441Eb47EFfC3665e70e69Ac3F05",
           "proxySalt": "ITS v1.0.0",
@@ -620,5 +620,5 @@
       "axelar10d07y265gmmuvt4z0w9aw880jnsr700j7v9daj",
       "axelar12f2qn005d4vl03ssjq07quz6cja72w5ukuchv7"
     ]
+    }
   }
-}

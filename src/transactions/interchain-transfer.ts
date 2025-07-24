@@ -1,16 +1,17 @@
 import { Command, Option } from 'commander';
-import { mainProcessor, hex, parseTokenAmount } from './utils';
-import { addBaseOptions, addSkipPromptOption } from './cli-utils';
+import { mainProcessor, hex, parseTokenAmount } from '../utils/utils';
+import { addBaseOptions, addSkipPromptOption } from '../utils/cli-utils';
 import * as xrpl from 'xrpl';
 
 /**
- * XRPL에서 체인간 토큰 전송을 시작하는 함수
- * @param _config - 설정 객체 (사용하지 않음)
- * @param wallet - XRPL 지갑 객체
- * @param client - XRPL 클라이언트
- * @param chain - 체인 정보 (contracts.InterchainTokenService.address 포함)
- * @param options - 옵션 객체 (payload, gasFeeAmount, yes 포함)
- * @param args - 인수 배열 (token, amount, destinationChain, destinationAddress 포함)
+ * XRPL → XRPL EVM 사이드체인으로 토큰(XRP 또는 IOU)을 전송하는 스크립트입니다.
+ * - interchain-transfer 명령어로 크로스체인 전송을 수행합니다.
+ *
+ * [주요 옵션]
+ *   --gasFeeAmount <amount> : 크로스체인 전송 시 사용할 가스 수량
+ *
+ * [실행 예시]
+ *   npx ts-node src/transactions/interchain-transfer.ts --env xrpl --chainName xrpl XRP 10 xrpl-evm 0xabc... --gasFeeAmount 2
  */
 async function interchainTransfer(_config: any, wallet: xrpl.Wallet, client: any, chain: any, options: { payload?: string; gasFeeAmount: string; yes: boolean }, args: string[]): Promise<void> {
     await client.sendPayment(

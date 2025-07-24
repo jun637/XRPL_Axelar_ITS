@@ -1,16 +1,21 @@
 import { Command, Option } from 'commander';
-import { mainProcessor, parseTokenAmount } from './utils';
-import { addBaseOptions, addSkipPromptOption } from './cli-utils';
+import { mainProcessor, parseTokenAmount } from '../utils/utils';
+import { addBaseOptions, addSkipPromptOption } from '../utils/cli-utils';
 import { printInfo } from '../common';
 import * as xrpl from 'xrpl';
 
 /**
- * XRPL에서 토큰을 전송하는 함수
- * @param _config - 설정 객체 (사용하지 않음)
- * @param wallet - XRPL 지갑 객체
- * @param client - XRPL 클라이언트
- * @param _chain - 체인 정보 (사용하지 않음)
- * @param options - 옵션 객체 (from, to, token, amount, yes 포함)
+ * XRPL 내에서 단순 송금(Payment) 트랜잭션을 실행하는 스크립트입니다.
+ * - 지정한 계정에서 다른 계정으로 XRP 또는 IOU를 전송합니다.
+ *
+ * [주요 옵션]
+ *   --from <from>     : 송금할 계정(기본값: 활성 지갑)
+ *   --to <to>         : 수신자 계정(필수)
+ *   --token <token>   : 토큰 종류(XRP 또는 IOU)
+ *   --amount <amount> : 송금할 수량(필수)
+ *
+ * [실행 예시]
+ *   npx ts-node src/transactions/payment.ts --from r... --to r... --token XRP --amount 10
  */
 async function payment(_config: any, wallet: xrpl.Wallet, client: any, _chain: any, options: { from?: string; to: string; token: string; amount: number; yes: boolean }): Promise<void> {
     printInfo('Transferring tokens');

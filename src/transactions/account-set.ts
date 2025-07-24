@@ -1,16 +1,19 @@
 import { Command, Option } from 'commander';
-import { mainProcessor, hex } from './utils';
-import { addBaseOptions, addSkipPromptOption } from './cli-utils';
+import { mainProcessor } from '../utils/utils';
+import { addBaseOptions, addSkipPromptOption } from '../utils/cli-utils';
 import { printInfo } from '../common';
 import * as xrpl from 'xrpl';
+import { hex } from '../utils/utils';
 
 /**
- * XRPL 계정 속성을 설정하는 함수
- * @param _config - 설정 객체 (사용하지 않음)
- * @param wallet - XRPL 지갑 객체
- * @param client - XRPL 클라이언트
- * @param _chain - 체인 정보 (사용하지 않음)
- * @param options - 옵션 객체 (account, transferRate, tickSize, domain, flag, yes 포함)
+ * XRPL 계정의 속성(Flag 등)을 설정하는 스크립트입니다.
+ * - 계정의 다양한 속성(예: DefaultRipple, NoFreeze 등)을 변경할 수 있습니다.
+ *
+ * [주요 옵션]
+ *   --flag <flag> : 설정할 XRPL AccountSet 플래그
+ *
+ * [실행 예시]
+ *   npx ts-node src/transactions/account-set.ts --flag DefaultRipple
  */
 async function accountSet(_config: any, wallet: xrpl.Wallet, client: any, _chain: any, options: { account?: string; transferRate?: string; tickSize?: string; domain?: string; flag?: string; yes: boolean }): Promise<void> {
     printInfo('Updating account properties');

@@ -1,18 +1,22 @@
 import * as xrpl from 'xrpl';
 import { Command, Option } from 'commander';
-import { mainProcessor, roundUpToNearestXRP } from './utils';
-import { addBaseOptions, addSkipPromptOption } from './cli-utils';
+import { mainProcessor, roundUpToNearestXRP } from '../utils/utils';
+import { addBaseOptions, addSkipPromptOption } from '../utils/cli-utils';
 import { printInfo, printWarn } from '../common';
 
 const MAX_CLAIMABLE_DROPS = 1000000000;
 
 /**
- * XRPL faucet에서 자금을 요청하는 함수
- * @param _config - 설정 객체 (사용하지 않음)
- * @param wallet - XRPL 지갑 객체
- * @param client - XRPL 클라이언트
- * @param _chain - 체인 정보 (사용하지 않음)
- * @param options - 옵션 객체 (recipient, amount, minBalance, yes 포함)
+ * XRPL 테스트넷 faucet에서 지정한 지갑으로 XRP를 요청하는 스크립트입니다.
+ * - 기본 지갑 또는 recipient 옵션으로 지정한 주소에 XRP를 지급합니다.
+ *
+ * [주요 옵션]
+ *   --recipient <address> : XRP를 받을 주소(기본값: 활성 지갑)
+ *   --amount <amount>     : 요청할 XRP 수량(기본값: 100)
+ *   --minBalance <amount> : 최소 잔고(기본값: 1)
+ *
+ * [실행 예시]
+ *   npx ts-node src/wallet/faucet.ts --recipient r... --amount 100
  */
 async function faucet(_config: any, wallet: xrpl.Wallet, client: any, _chain: any, options: { recipient?: string; amount: string; minBalance: string; yes: boolean }): Promise<void> {
     const recipient = options.recipient || wallet.address;
