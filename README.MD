@@ -1,6 +1,6 @@
 # XRPL-Axelar ITS 실험 프로젝트
 
-> 이 프로젝트는 XRPL에서 발행된 XRP 또는 IOU 토큰을 Axelar Interchain Token Service(ITS)를 통해 EVM 기반 사이드체인으로 전송하는 TypeScript 기반 실험용 시스템입니다.
+> 이 프로젝트는 XRPL에서 발행된 XRP 또는 IOU 토큰을 Axelar Interchain Token Service(ITS)를 통해 XRPL EVM Sidechain으로 전송하는 TypeScript 기반 프로젝트입니다.
 > 
 > **이 프로젝트는 TypeScript 기반으로 구현된 CLI(Command Line Interface) 시스템이며, 모든 기능은 명령어 형태로 실행됩니다.**
 
