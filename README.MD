@@ -1,4 +1,4 @@
-# XRPL-Axelar ITS 실험 프로젝트
+# XRPL-Axelar ITS-XRPL EVM Sidechain
 
 > 이 프로젝트는 XRPL에서 발행된 XRP 또는 IOU 토큰을 Axelar Interchain Token Service(ITS)를 통해 XRPL EVM Sidechain으로 전송하는 TypeScript 기반 프로젝트입니다.
 > 
